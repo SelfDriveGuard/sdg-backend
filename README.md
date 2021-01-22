@@ -6,7 +6,10 @@ nodejs: sudo apt-get install -y nodejs
 
 mongoDB: sudo apt-get install mongodb
 
-npm: apt-get install npm
+npm: sudo apt-get install npm
+ps: ubuntu下npm版本过低 需要 sudo npm install -g npm 升级版本
+
+npm install
 
 pm2: npm install -g pm2 (服务器部署时需要)
 
