@@ -1,6 +1,7 @@
 # 自动驾驶测试后端
 
-##依赖
+## 依赖
+
 nodejs: sudo apt-get install -y nodejs
 
 mongoDB: sudo apt-get install mongodb
@@ -9,7 +10,8 @@ npm: apt-get install npm
 
 pm2: npm install -g pm2 (服务器部署时需要)
 
-##部署
+## 部署
+
 1.mongoDB连接: 修改 ./config/mongo.js 
 
 本地： url = "mongodb://localhost:27017/ADTest"
