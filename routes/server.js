@@ -57,8 +57,8 @@ router.get('/me', async (ctx) => {
 
 router.get('/init', async (ctx) => {
     await Servers.create({
-        ip: '10.10.10.10',
-        port: '8091',
+        ip: '127.0.0.1',
+        port: '8093',
         _user: null,
         price: 1000,
         simulator: 'Carla',  // 模拟器
