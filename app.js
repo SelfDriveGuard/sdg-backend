@@ -37,6 +37,6 @@ app.use(async (ctx) => {
     ctx.body = ctx.request.body;
 });
 
-app.listen(3333, () => {
-    console.log('[Server] starting at port 3333')
+app.listen(8092, () => {
+    console.log('[Server] starting at port 8092')
 });

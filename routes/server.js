@@ -55,4 +55,20 @@ router.get('/me', async (ctx) => {
     }
 });
 
+router.get('/init', async (ctx) => {
+    await Servers.create({
+        ip: '10.10.10.10',
+        port: '8091',
+        _user: null,
+        price: 1000,
+        simulator: 'Carla',  // 模拟器
+        avSystem: 'Autoware',  // 自动驾驶系统
+        expiredTime: '2021/2/19',
+    });
+    ctx.body = {
+        code: 200,
+        data: 'success',
+    }
+});
+
 module.exports = router;
