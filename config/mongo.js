@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const option = {
     autoReconnect: true,
 };
-const url = "mongodb://cygRoot:cyg1tracy@118.31.126.252:29089/ADTest?authSource=admin";
-// const url = "mongodb://localhost:27017/ADTest";
+// const url = "mongodb://cygRoot:cyg1tracy@118.31.126.252:29089/ADTest?authSource=admin";
+const url = "mongodb://localhost:27017/ADTest";
 
 module.exports = {
     connect: () => {
