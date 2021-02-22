@@ -28,8 +28,8 @@ pm2: npm install -g pm2 (服务器部署时需要)
 服务器： pm2 start app.js
 
 3.初始化数据
-
-浏览器输入 /server/init?ip=${server_ip} 初始化服务器列表
+浏览器输入 /server/init?ip=${server_ip}
+添加服务器实例：http://127.0.0.1:8092/server/init?ip=172.16.111.155
 
 
 
