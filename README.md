@@ -29,5 +29,7 @@ pm2: npm install -g pm2 (服务器部署时需要)
 
 3.初始化数据
 
-浏览器输入 ${ip}/server/init 初始化服务器列表
+浏览器输入 /server/init?ip=${server_ip} 初始化服务器列表
+
+
 
