@@ -58,7 +58,6 @@ router.get('/me', async (ctx) => {
 router.get('/init', async (ctx) => {
     const {ip} = ctx.request.query;
     const newIp = ip ? ip : '127.0.0.1';
-    console.log();
     await Servers.create({
         ip: newIp,
         port: '8093',
