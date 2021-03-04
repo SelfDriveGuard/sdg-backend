@@ -174,9 +174,11 @@ router.post('/register', async (ctx) => {
                 userName,
                 password,
             });
-            mkdirsSync(`project/${userName}/project1`);
-            const template = fs.readFileSync(path.join(__dirname, '../template.scenest'));
-            fs.writeFileSync(path.join(__dirname, `../project/${userName}/project1/demo1.scenest`), template);
+            mkdirsSync(`project/${userName}/example`);
+            const demo1 = fs.readFileSync(path.join(__dirname, '../template/demo1.scenest'));
+            const demo2 = fs.readFileSync(path.join(__dirname, '../template/demo2.scenest'));
+            fs.writeFileSync(path.join(__dirname, `../project/${userName}/example/demo1.scenest`), demo1);
+            fs.writeFileSync(path.join(__dirname, `../project/${userName}/example/demo2.scenest`), demo2);
             ctx.body = {
                 code: 200,
                 data: '注册成功',
