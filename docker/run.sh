@@ -11,6 +11,7 @@ trap cleanup KILL
 cd /home/carla/ADTest_backend
 
 echo "Launching ADTest_backend."
+mongod --dbpath=/var/lib/mongodb --port 8094 --bind_ip 0.0.0.0 --auth --logpath=/var/log/mongodb/mongodb.log --fork
 node app.js &
 sleep 5
 

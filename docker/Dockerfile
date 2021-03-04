@@ -32,9 +32,11 @@ RUN cd /home/carla/ADTest_backend/ && \
   npm config get registry && \
   npm install
 
-EXPOSE 8090-8093
+RUN mongod --dbpath=/var/lib/mongodb --port 8094 --bind_ip 0.0.0.0 --logpath=/var/log/mongodb/mongodb.log --fork && \
+  mongo admin --port 8094 --eval "db.createUser({ user:'guardstrike',pwd:'123456',roles:[ { role:'userAdminAnyDatabase', db: 'admin'}]})"
 
-USER carla
+EXPOSE 8090-8094
+EXPOSE 27017
 
 COPY run.sh /home/carla/
 WORKDIR /home/carla
