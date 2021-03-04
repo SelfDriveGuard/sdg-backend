@@ -25,16 +25,11 @@ RUN chmod 600 /root/.ssh/* && \
 
 RUN cd /home/carla/ && \
   git clone git@codeup.aliyun.com:5f3f374f6207a1a8b17f933f/ADTest/ADTest_backend.git && \
-  chmod 777 /home/carla/ADTest_backend
-
-RUN cd /home/carla/ADTest_backend/ && \
-  git pull && \
+  chmod 777 /home/carla/ADTest_backend && \
+  cd /home/carla/ADTest_backend/ && \
   npm config set registry 'https://registry.npm.taobao.org' && \
   npm config get registry && \
   npm install
-
-RUN mongod --dbpath=/var/lib/mongodb --port 8094 --bind_ip 0.0.0.0 --logpath=/var/log/mongodb/mongodb.log --fork && \
-  mongo admin --port 8094 --eval "db.createUser({ user:'guardstrike',pwd:'123456',roles:[ { role:'userAdminAnyDatabase', db: 'admin'}]})"
 
 EXPOSE 8090-8094
 
