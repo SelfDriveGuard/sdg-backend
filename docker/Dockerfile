@@ -25,16 +25,13 @@ RUN chmod 600 /root/.ssh/* && \
 
 RUN cd /home/carla/ && \
   git clone git@codeup.aliyun.com:5f3f374f6207a1a8b17f933f/ADTest/ADTest_backend.git && \
-  chmod 777 /home/carla/ADTest_backend
-
-RUN cd /home/carla/ADTest_backend/ && \
+  chmod 777 /home/carla/ADTest_backend && \
+  cd /home/carla/ADTest_backend/ && \
   npm config set registry 'https://registry.npm.taobao.org' && \
   npm config get registry && \
   npm install
 
-EXPOSE 8090-8093
-
-USER carla
+EXPOSE 8090-8094
 
 COPY run.sh /home/carla/
 WORKDIR /home/carla
