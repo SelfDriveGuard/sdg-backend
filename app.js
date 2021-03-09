@@ -26,9 +26,11 @@ app.use(session({
 
 const user = require('./routes/user');
 const server = require('./routes/server');
+const example = require('./routes/example');
 const router = new Router();
 router.use('/user', user.routes());
 router.use('/server', server.routes());
+router.use('/example', example.routes());
 
 app.use(router.routes());
 app.use(router.allowedMethods());
