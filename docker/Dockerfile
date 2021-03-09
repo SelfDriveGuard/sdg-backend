@@ -17,7 +17,7 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x |  bash - && \
 
 # clone source code
 RUN cd /home/sdg/ && \
-  git clone git@github.com:SelfDriveGuard/sdg-backend.git && \
+  git clone git://github.com/SelfDriveGuard/sdg-backend.git && \
   chmod 777 /home/sdg/sdg-backend && \
   cd /home/sdg/sdg-backend/ && \
   npm install
