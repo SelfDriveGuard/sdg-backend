@@ -5,7 +5,7 @@ const Users = require('../models/users');
 // 获取服务器列表
 router.get('/list', async (ctx) => {
     try {
-        const query = await Servers.find();
+        const query = await Servers.find({}, {_id: 0, __v: 0});
         ctx.body = {
             code: 200,
             data: query,
@@ -42,7 +42,7 @@ router.post('/purchase', async (ctx) => {
 router.get('/me', async (ctx) => {
     try {
         const user = await Users.findOne({userName: ctx.session.user});
-        const servers = await Servers.find({_user: user._id});
+        const servers = await Servers.find({_user: user._id}, {_id: 0, __v: 0, _user: 0});
         ctx.body = {
             code: 200,
             data: servers,
