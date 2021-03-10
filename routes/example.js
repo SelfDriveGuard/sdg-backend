@@ -11,6 +11,7 @@ const getAll = (dir) => {
     function getMap(dir, curIndex) {
         const files = fs.readdirSync(dir); //同步拿到文件目录下的所有文件名
         files.map(function (file) {
+            //const subPath = path.resolve(dir, file) //拼接为绝对路径
             const subPath = path.join(dir, file); //拼接为相对路径
             const stats = fs.statSync(subPath); //拿到文件信息对象
             mapDeep[file] = curIndex + 1;
@@ -46,7 +47,6 @@ const getAll = (dir) => {
                 folderName: folderName,
                 code,
             }
-
         });
         return result;
     }
