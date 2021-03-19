@@ -5,7 +5,7 @@ const Users = require('../models/users');
 // 获取服务器列表
 router.get('/list', async (ctx) => {
     try {
-        const query = await Servers.find({}, {_id: 0, __v: 0});
+        const query = await Servers.find({}, {__v: 0});
         ctx.body = {
             code: 200,
             data: query,

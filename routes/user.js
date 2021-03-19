@@ -162,7 +162,7 @@ router.get('/downloadProject', async (ctx) => {
 // 注册
 router.post('/register', async (ctx) => {
     try {
-        const {userName, password} = ctx.request.body;
+        const {userName, password, dev} = ctx.request.body;
         const query = await Users.findOne({userName: userName});
         if (query) {
             ctx.body = {
@@ -173,6 +173,7 @@ router.post('/register', async (ctx) => {
             await Users.create({
                 userName,
                 password,
+                dev,
             });
             mkdirsSync(`project/${userName}/example`);
             const demo1 = fs.readFileSync(path.join(__dirname, '../template/demo1.scenest'));
@@ -235,10 +236,30 @@ router.post('/logout', async (ctx) => {
 
 // 查看用户是否登录
 router.get('/me', async (ctx) => {
+    let data;
+    if (ctx.session.user) {
+        data = await Users.findOne({userName: ctx.session.user}, {_id: 0, __v: 0, password: 0});
+    }
     ctx.body = {
         code: 200,
-        data: !!ctx.session.user,
+        data: data || false,
     };
+});
+
+// 给已有的collection 添加新字段
+router.get('/addNewAttr', async (ctx) => {
+    try {
+        await Users.updateMany({}, {dev: false});
+        ctx.body = {
+            code: 200,
+            data: 'success',
+        };
+    } catch (error) {
+        ctx.body = {
+            code: 500,
+            data: error,
+        };
+    }
 });
 
 module.exports = router;
