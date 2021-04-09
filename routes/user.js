@@ -81,7 +81,7 @@ router.post('/addProject', async (ctx) => {
     try {
         const {project, name} = ctx.request.body;
         mkdirsSync(path.join(__dirname, `../project/${ctx.session.user}/${project}`));
-        fs.writeFileSync(path.join(__dirname, `../project/${ctx.session.user}/${project}/${name}.scenest`),
+        fs.writeFileSync(path.join(__dirname, `../project/${ctx.session.user}/${project}/${name}`),
             'New File', 'utf8');
         ctx.body = {
             code: 200,
@@ -100,7 +100,7 @@ router.post('/updateProject', async (ctx) => {
     try {
         const {oldPath, isLeaf, updateName, folderName} = ctx.request.body;
         const oldPathParse = path.join(__dirname, `../${path.normalize(oldPath)}`);
-        const newPath = isLeaf ? path.join(__dirname, `../project/${ctx.session.user}/${folderName}/${updateName}.scenest`) :
+        const newPath = isLeaf ? path.join(__dirname, `../project/${ctx.session.user}/${folderName}/${updateName}`) :
             path.join(__dirname, `../project/${ctx.session.user}/${updateName}`);
         fs.renameSync(oldPathParse, newPath);
         ctx.body = {
