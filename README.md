@@ -23,7 +23,6 @@ pm2: npm install -g pm2 (服务器部署时需要)
 ```
 mongod --dbpath=/var/lib/mongodb --port 8094 --bind_ip 0.0.0.0 --logpath=/var/log/mongodb/mongodb.log --fork
 mongo --port 8094 
-mongo 
 use admin 
 db.createUser({ user:'sdg',pwd:'123456',roles:[ { role:'readWriteAnyDatabase', db: 'admin'}]})
 mongod --shutdown --dbpath /var/lib/mongodb
